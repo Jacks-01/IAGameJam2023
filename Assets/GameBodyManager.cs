@@ -7,7 +7,8 @@ public class GameBodyManager : MonoBehaviour
 {
     public BodySourceView bodySourceView;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         bodySourceView.OnBodyCreated += CreateBody;
     }
 
@@ -20,6 +21,11 @@ public class GameBodyManager : MonoBehaviour
 
     private void AddJointCollider(GameObject parent)
     {
-        
+        GameObject jointSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        jointSphere.transform.position = parent.transform.position;
+        jointSphere.transform.parent = parent.transform;
+
+
+
     }
 }
