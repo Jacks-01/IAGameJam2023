@@ -45,6 +45,14 @@ public class BodySourceView : MonoBehaviour
     };
 
     public TMP_Text text;
+    public GameObject rightHandObject;
+    public GameObject startButton; 
+
+    // void Start() 
+    // {
+
+    //     Collider collider = rightHandObject.GetComponent<Collider>();
+    // }
     void Update () 
     {
         if (BodySourceManager == null)
@@ -58,14 +66,14 @@ public class BodySourceView : MonoBehaviour
             return;
         }
         
-        Kinect.Body[] data = _BodyManager.GetData();
-        if (data == null)
+        Kinect.Body[] kinectBodies = _BodyManager.GetData();
+        if (kinectBodies == null)
         {
             return;
         }
         
         List<ulong> trackedIds = new List<ulong>();
-        foreach(var body in data)
+        foreach(var body in kinectBodies)
         {
             if (body == null)
             {
@@ -90,7 +98,7 @@ public class BodySourceView : MonoBehaviour
             }
         }
 
-        foreach(var body in data)
+        foreach(var body in kinectBodies)
         {
             if (body == null)
             {
@@ -107,6 +115,8 @@ public class BodySourceView : MonoBehaviour
                 RefreshBodyObject(body, _Bodies[body.TrackingId]);
             }
         }
+
+
     }
     
     private GameObject CreateBodyObject(ulong id)
