@@ -13,17 +13,12 @@ public class GameBodyManager : MonoBehaviour
 
     private void CreateBody(BodyParts bodyParts)
     {
-        Debug.Log("DOES THIS DEBUG LOG WORK");
+        AddJointCollider(bodyParts.Head);
+        AddJointCollider(bodyParts.LeftHand);
+        AddJointCollider(bodyParts.RightHand);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void AddJointCollider(GameObject parent)
     {
         
     }
