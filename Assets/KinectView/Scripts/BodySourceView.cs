@@ -127,7 +127,7 @@ public class BodySourceView : MonoBehaviour
     
     private GameObject CreateBodyObject(ulong id)
     {
-        Debug.Log("YOOOOOOO");
+        // Debug.Log("YOOOOOOO");
         text.text = "welcome!";
         GameObject body = new GameObject("Body:" + id);
 
