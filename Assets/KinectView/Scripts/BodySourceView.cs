@@ -3,7 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Kinect = Windows.Kinect;
 using TMPro;
+using UnityEngine.Events;
+using System;
 
+
+public class BodyParts
+{
+    public GameObject RightHand;
+    public GameObject LeftHand;
+    public GameObject Head;
+}
 public class BodySourceView : MonoBehaviour 
 {
     public Material BoneMaterial;
@@ -13,6 +22,8 @@ public class BodySourceView : MonoBehaviour
     private BodySourceManager _BodyManager;
     
     private Dictionary<Kinect.JointType, Kinect.JointType> _BoneMap = new Dictionary<Kinect.JointType, Kinect.JointType>()
+
+
     {
         // { Kinect.JointType.FootLeft, Kinect.JointType.AnkleLeft },
         // { Kinect.JointType.AnkleLeft, Kinect.JointType.KneeLeft },
@@ -45,14 +56,9 @@ public class BodySourceView : MonoBehaviour
     };
 
     public TMP_Text text;
-    public GameObject rightHandObject;
-    public GameObject startButton; 
+    public GameObject startButton;
+    public Action<BodyParts> OnBodyCreated;
 
-    // void Start() 
-    // {
-
-    //     Collider collider = rightHandObject.GetComponent<Collider>();
-    // }
     void Update () 
     {
         if (BodySourceManager == null)
@@ -124,9 +130,12 @@ public class BodySourceView : MonoBehaviour
         Debug.Log("YOOOOOOO");
         text.text = "welcome!";
         GameObject body = new GameObject("Body:" + id);
-        
+
+        BodyParts bodyParts = new();
+
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
         {
+
             GameObject jointObj = GameObject.CreatePrimitive(PrimitiveType.Cube);
             
             LineRenderer lr = jointObj.AddComponent<LineRenderer>();
@@ -137,7 +146,22 @@ public class BodySourceView : MonoBehaviour
             jointObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             jointObj.name = jt.ToString();
             jointObj.transform.parent = body.transform;
-        }
+
+            if (jt == Kinect.JointType.HandRight )
+            {
+                 bodyParts.RightHand = jointObj;
+            }
+            if (jt == Kinect.JointType.HandLeft )
+            {
+                 bodyParts.LeftHand = jointObj;
+            }
+            if (jt == Kinect.JointType.Head )
+            {
+                bodyParts.Head = jointObj;
+            }
+        } //end loop
+
+        OnBodyCreated?.Invoke(bodyParts);
         
         return body;
     }
