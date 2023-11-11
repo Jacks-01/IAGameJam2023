@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Kinect = Windows.Kinect;
+using TMPro;
 
 public class BodySourceView : MonoBehaviour 
 {
@@ -13,15 +14,15 @@ public class BodySourceView : MonoBehaviour
     
     private Dictionary<Kinect.JointType, Kinect.JointType> _BoneMap = new Dictionary<Kinect.JointType, Kinect.JointType>()
     {
-        { Kinect.JointType.FootLeft, Kinect.JointType.AnkleLeft },
-        { Kinect.JointType.AnkleLeft, Kinect.JointType.KneeLeft },
-        { Kinect.JointType.KneeLeft, Kinect.JointType.HipLeft },
-        { Kinect.JointType.HipLeft, Kinect.JointType.SpineBase },
+        // { Kinect.JointType.FootLeft, Kinect.JointType.AnkleLeft },
+        // { Kinect.JointType.AnkleLeft, Kinect.JointType.KneeLeft },
+        // { Kinect.JointType.KneeLeft, Kinect.JointType.HipLeft },
+        // { Kinect.JointType.HipLeft, Kinect.JointType.SpineBase },
         
-        { Kinect.JointType.FootRight, Kinect.JointType.AnkleRight },
-        { Kinect.JointType.AnkleRight, Kinect.JointType.KneeRight },
-        { Kinect.JointType.KneeRight, Kinect.JointType.HipRight },
-        { Kinect.JointType.HipRight, Kinect.JointType.SpineBase },
+        // { Kinect.JointType.FootRight, Kinect.JointType.AnkleRight },
+        // { Kinect.JointType.AnkleRight, Kinect.JointType.KneeRight },
+        // { Kinect.JointType.KneeRight, Kinect.JointType.HipRight },
+        // { Kinect.JointType.HipRight, Kinect.JointType.SpineBase },
         
         { Kinect.JointType.HandTipLeft, Kinect.JointType.HandLeft },
         { Kinect.JointType.ThumbLeft, Kinect.JointType.HandLeft },
@@ -42,7 +43,8 @@ public class BodySourceView : MonoBehaviour
         { Kinect.JointType.SpineShoulder, Kinect.JointType.Neck },
         { Kinect.JointType.Neck, Kinect.JointType.Head },
     };
-    
+
+    public TMP_Text text;
     void Update () 
     {
         if (BodySourceManager == null)
@@ -109,6 +111,8 @@ public class BodySourceView : MonoBehaviour
     
     private GameObject CreateBodyObject(ulong id)
     {
+        Debug.Log("YOOOOOOO");
+        text.text = "welcome!";
         GameObject body = new GameObject("Body:" + id);
         
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
