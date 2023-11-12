@@ -440,7 +440,6 @@ GameObject:
   - component: {fileID: 2388558450693065298}
   - component: {fileID: 6315481672014298842}
   - component: {fileID: 2496949068645116974}
-  - component: {fileID: 3843605424290840581}
   m_Layer: 0
   m_Name: WallPart (2)
   m_TagString: Untagged
@@ -569,31 +568,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3843605424290840581}
-        m_TargetAssemblyTypeName: FallOnHit, Assembly-CSharp
-        m_MethodName: OnPlayerHit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3843605424290840581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3981055789032199984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176d903efdeab1f47bad58a5e2cf88a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallOnHit: 1
 --- !u!1 &5854045820573857471
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +722,7 @@ GameObject:
   - component: {fileID: 2776378261970356214}
   - component: {fileID: 6904916106834909675}
   m_Layer: 0
-  m_Name: Wall 1
+  m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -800,3 +774,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a1e80ce6a8794f8c57d3812a0ff79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallOnHit: 1

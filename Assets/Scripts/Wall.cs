@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public void OnPlayerHit()
     {
         Debug.Log("Player has been hit");
     }

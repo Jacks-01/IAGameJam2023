@@ -9,7 +9,7 @@ public class WallGame : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnWall", 10, 10);
+        InvokeRepeating("SpawnWall", 1, 7);
     }
     public void SpawnWall()
     {
