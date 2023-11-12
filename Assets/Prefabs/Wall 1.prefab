@@ -800,3 +800,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a1e80ce6a8794f8c57d3812a0ff79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 3716428072209732643, guid: f2b6040dd2ee7354d980d35a1e1cda7b, type: 3}
